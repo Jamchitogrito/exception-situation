@@ -7,13 +7,13 @@
         Title="Исключительные ситуации">
     <Grid>
         <TextBlock VerticalAlignment="Top" Height="20" />
-        <ListBox x:Name="tv_ListBox"  Margin="0 25 0 50">
+        <ListBox x:Name="tv_ListBox"  Margin="0 25 0 50" SelectionChanged="tv_ListBox_SelectionChanged">
             
         </ListBox>
         <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Height="45">
-            <Button Click="Button_Click" Height="40" VerticalAlignment="Center" Content="Добавить в корзину"/>
-            <Button Click="Button_Click2" Height="40" VerticalAlignment="Center" Content="Оформить заказ"/>
-            <TextBlock Height="40" VerticalAlignment="Center" TextAlignment="Justify" Text="Итоговая сумма: 0 руб" />
+            <Button Click="AddToBasket" Height="40" VerticalAlignment="Center" Content="Добавить в корзину"/>
+            <Button Click="MakeOrder" Height="40" VerticalAlignment="Center" Content="Оформить заказ"/>
+            <TextBlock x:Name="ShowAllPrice_TextBlock" Height="40" VerticalAlignment="Center" TextAlignment="Justify" Text="Итоговая сумма: 0 руб" />
         </StackPanel>
     </Grid>
 </Window>
