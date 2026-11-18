@@ -2,18 +2,27 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:exception_situation" 
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="exception_situation.MainWindow"
         Title="Исключительные ситуации">
     <Grid>
         <TextBlock VerticalAlignment="Top" Height="20" />
-        <ListBox x:Name="tv_ListBox"  Margin="0 25 0 50" SelectionChanged="tv_ListBox_SelectionChanged">
-            
-        </ListBox>
+        <DataGrid x:Name="tv_DataGrid" Margin="0 25 0 50"
+                  AutoGenerateColumns="False"
+                  x:DataType="local:Product" 
+                  SelectionChanged="tv_DataGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название" Binding="{Binding name}" Width="*"/>
+                <DataGridTextColumn Header="Цена" Binding="{Binding price}" Width="120"/>
+                <DataGridTextColumn Header="Количество" Binding="{Binding count}" Width="120"/>
+            </DataGrid.Columns>
+        </DataGrid>
         <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Height="45">
             <Button Click="AddToBasket" Height="40" VerticalAlignment="Center" Content="Добавить в корзину"/>
             <Button Click="MakeOrder" Height="40" VerticalAlignment="Center" Content="Оформить заказ"/>
-            <TextBlock x:Name="ShowAllPrice_TextBlock" Height="40" VerticalAlignment="Center" TextAlignment="Justify" Text="Итоговая сумма: 0 руб" />
+            <TextBlock x:Name="ShowAllPrice_TextBlock" Height="40" VerticalAlignment="Center"
+                       TextAlignment="Justify" Text="Итоговая сумма: 0 руб" />
         </StackPanel>
     </Grid>
 </Window>
